@@ -1,0 +1,80 @@
+/* .chatcontainer{
+    max-width: 500px;
+    height: max-content; */
+    /* margin: 25px auto;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px;
+    
+}
+.chats{
+    display:flex;
+    /* justify-content: space-between; */
+    /* width: 30%;
+    border-right: 1px solid #ccc;
+}
+.search {display: flex;
+justify-content: space-between;}
+.search button{
+    cursor:pointer;
+    font-weight: bolder;
+    padding:7px 8px;
+    font-size: 0.8 rem;
+    border:none;
+    background-color: rgb(88, 9, 9);
+    border-radius:10px;
+color:white;
+margin-right: 0px;
+
+} */ */
+ 
+.chatcontainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 10px;
+  }
+  
+  .search {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .search input {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .search button {
+    padding: 10px;
+  }
+  
+  #results {
+    margin-bottom: 10px;
+  }
+  
+  .chatlist {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .chatbox {
+    flex: 2;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  .chatcontainer{
+    max-width: 500px;
+    height: max-content; 
+    margin: 25px auto;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px;
+    
+}
+.btn{
+    border: none;
+    outline: none;
+    color: white;
+    background-color: brown;
+    border-radius: 10px;
+}
