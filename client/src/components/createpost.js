@@ -15,7 +15,7 @@ export default function Createpost() {
 
   useEffect(()=>{ 
     if(url)
-    {fetch("http://localhost:5000/createpost",{
+    {fetch(`${process.env.REACT_APP_BASE_URL}/createpost`,{
     method:"post",
     headers:{
       "Content-Type":"application/json",

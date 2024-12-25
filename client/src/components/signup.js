@@ -25,7 +25,7 @@ export default function Signup() {
         return;
       }
     // SENDING DATA TO SERVER
-    fetch("http://localhost:5000/signup",{
+    fetch(`${process.env.REACT_APP_BASE_URL}/signup`,{
       method:"post",
       headers:{"Content-Type":"application/json"},
       body: JSON.stringify({

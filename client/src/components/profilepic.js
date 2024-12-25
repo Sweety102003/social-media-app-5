@@ -23,7 +23,7 @@ const [url , seturl ]=useState("");
 
 
 const postPic=()=>{
-    {fetch("http://localhost:5000/uploadprofilepic",{
+    {fetch(`${process.env.REACT_APP_BASE_URL}/uploadprofilepic`,{
         method:"put",
         headers:{
           "Content-Type":"application/json",

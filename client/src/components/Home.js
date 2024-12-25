@@ -18,7 +18,7 @@ export default function Home() {
 if(!token)
   {navigate("/signup");}
 // fetch request
-fetch("http://localhost:5000/allposts",{
+fetch(`${process.env.REACT_APP_BASE_URL}/allposts`,{
   headers:{
     Authorization:"Bearer " +localStorage.getItem("jwt")
   },
@@ -49,7 +49,7 @@ const toggleComment=(posts)=>{
 
 
   const likepost =(id)=>{
-    fetch("http://localhost:5000/like",
+    fetch(`${process.env.REACT_APP_BASE_URL}/like`,
      {method:"put",
       headers:{
         "Content-Type":"application/json",
@@ -74,7 +74,7 @@ const toggleComment=(posts)=>{
   .catch((err) => console.log(err));
 };
   const unlikepost =(id)=>{
-    fetch("http://localhost:5000/unlike",
+    fetch(`${process.env.REACT_APP_BASE_URL}/unlike`,
      {method:"put",
       headers:{
         "Content-Type":"application/json",
@@ -106,7 +106,7 @@ const toggleComment=(posts)=>{
   }
 
   const makeComment =(text , id)=>{
-    fetch("http://localhost:5000/comment",
+    fetch(`${process.env.REACT_APP_BASE_URL}/comment`,
       {method:"put",
        headers:{
          "Content-Type":"application/json",

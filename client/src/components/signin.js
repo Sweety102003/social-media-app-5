@@ -12,7 +12,7 @@ const {setuserLogin}=useContext(LoginContext)
   const notifyA=(message)=> toast.error(message);
   const notifyb=(message)=> toast.success(message);
   const emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
+  console.log(process.env.REACT_APP_BASE_URL);
   const postData =()=>{
     if(!emailRegex.test(email))
      {
@@ -21,7 +21,7 @@ const {setuserLogin}=useContext(LoginContext)
      }
     
      // SENDING DATA TO SERVER
-     fetch("http://localhost:5000/signin",{
+     fetch(`${process.env.REACT_APP_BASE_URL}/signin`,{
        method:"post",
        headers:{"Content-Type":"application/json"},
        body:JSON.stringify({

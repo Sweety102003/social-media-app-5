@@ -8,7 +8,7 @@ import io from "socket.io-client";
 
 import Chatlist from './chatlist';
 import "./chats.css"
-const endpoint = "http://localhost:5000";
+const endpoint = process.env.REACT_APP_BASE_URL;
 var socket ,selectedChatCompare;
 export default function Chat() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -30,7 +30,7 @@ export default function Chat() {
 
   const fetchChats = async () => {
     try {
-      const response = await fetch('http://localhost:5000/fetchchats', {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/fetchchats`, {
         method: 'GET',
         headers: {
           'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -51,7 +51,7 @@ export default function Chat() {
   
     const searchUsers = () => {
         const query = new URLSearchParams({ search: searchTerm }).toString();
-        fetch(`http://localhost:5000/user?${query}`, {
+        fetch(`${process.env.REACT_APP_BASE_URL}/user?${query}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ export default function Chat() {
       };
       const accessChat = async (userId) => {
         try {
-          const response = await fetch('http://localhost:5000/accesschat', {
+          const response = await fetch(`${process.env.REACT_APP_BASE_URL}/accesschat`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export default function Chat() {
       };
       const fetchMessages = async (chatId) => {
         try {
-          const response = await fetch(`http://localhost:5000/allmessages/${chatId}`, {
+          const response = await fetch(`${process.env.REACT_APP_BASE_URL}/allmessages/${chatId}`, {
             method: 'GET',
             headers: {
               'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -115,7 +115,7 @@ export default function Chat() {
       };
       const sendMessage = async () => {
         try {
-          const response = await fetch('http://localhost:5000/sendmessage', {
+          const response = await fetch(`${process.env.REACT_APP_BASE_URL}/sendmessage`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

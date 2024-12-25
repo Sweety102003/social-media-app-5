@@ -9,7 +9,7 @@ const[isfollow,setIsfollow]=useState(false);
   const [user ,setUser]=useState("")
   const [posts , setPosts]=useState([]);
   const followuser=(userId)=>{
-    fetch("http://localhost:5000/follow",{
+    fetch(`${process.env.REACT_APP_BASE_URL}/follow`,{
         method:"put",
     headers:{
       "Content-Type":"application/json",
@@ -23,7 +23,7 @@ const[isfollow,setIsfollow]=useState(false);
     })
   }
   const unfollowuser=(userId)=>{
-    fetch("http://localhost:5000/unfollow",{
+    fetch(`${process.env.REACT_APP_BASE_URL}/unfollow`,{
         method:"put",
     headers:{
       "Content-Type":"application/json",
@@ -38,7 +38,7 @@ const[isfollow,setIsfollow]=useState(false);
     })
   }
   useEffect(()=>{
-    fetch(`http://localhost:5000/user/${userid}`,{
+    fetch(`${process.env.REACT_APP_BASE_URL}/user/${userid}`,{
       headers:{
         "Authorization":"Bearer " +localStorage.getItem("jwt")
       }

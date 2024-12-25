@@ -1,11 +1,13 @@
-import React,{useContext} from 'react';
+import React,{useContext, useState} from 'react';
 import "./navbar.css";
 import {Link , useNavigate} from "react-router-dom"
 import logo from "../img/logo.png"
 import { LoginContext } from "../context/logincontext.js"
-
+import { FiMenu } from "react-icons/fi";
+import { ImCross } from "react-icons/im";
 
 export default function Navbar({login}) {
+  const [menuvisible , setmenuvisible]=useState(false);
   const navigate=useNavigate();
   const {setmodalOpen}=useContext(LoginContext)
   const loginstatus=()=>{
@@ -27,6 +29,7 @@ export default function Navbar({login}) {
     }
     else{
       return [<>
+      
         <Link to="/signup"><li>Sign Up</li></Link>
         <Link to="/signin"><li>Sign In</li></Link>
        
@@ -41,7 +44,10 @@ export default function Navbar({login}) {
       <img src={logo} onClick={()=>{navigate("/")}} />
         <h2 >Together</h2>
         <ul>
-         
+        
+          {/* <li> <FiMenu onClick={()=>{setmenuvisible(true);}} /></li>;
+        
+      {menuvisible&& <li> <ImCross  onClick={()=>{setmenuvisible(false)}}/></li> } */}
    {loginstatus()}
         </ul>
     </div>
